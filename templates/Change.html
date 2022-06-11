@@ -1,0 +1,23 @@
+{% include 'header.html' %}
+<h2 style="margin-left:43%;">Изменение прав</h2>
+
+<form action="" method="post" id="groups">
+    <input type="hidden" name="action" value="edit_groups">
+    {% csrf_token %}
+    <div id="square">
+        <select multiple="multiple">
+            {% for i in sorted_list_of_permissions%}
+                <option > {{i}}</option>
+            {% endfor %}
+        </select>
+        <select multiple="multiple">
+            {% for j in a %}
+                <option>{{j}}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit">
+
+
+    </div>
+</form>

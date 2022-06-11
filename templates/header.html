@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/styl.css">
+    <link rel="shortcut icon" href="../static/img/logo_simple.ico" type="image/x-icon">
+    <title>Сообщество программистов и онлайн-школа IT профессий itProger</title>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a class="header_logo" href="/">itProger</a>
+
+            <div class="nav">
+                <a class="nav_link" href="#">Партнёрка</a>
+                <a class="nav_link" href="#">Магазин</a>
+            </div>
+            <div class="nav">
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                <a class="nav_link2" href="/Users/">Пользователи</a>
+                <a class="nav_link2" href="/AddUser/">Добавить пользователя</a>
+                {% endif %}
+                <span class="nav_link1">Приветстую,</span>
+                <a class="nav_link" href="/Profile/">{{ user.username }}</a>
+                <a class="nav_link" href="/logout/">Выход</a>
+                {% else %}
+                <a class="nav_link" href="/login/">Войти</a>
+                <a class="nav_link" href="/reg/">Регистрация</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="der">
+        <div>
+            <div>
+                <form action="{% url 'Video' %}">
+                    <a class="Menu_link" href="/news/">iT статьи</a>
+                    <a class="Menu_link" href="/video/">Видеокурсы</a>
+                    <a class="Menu_link" href="#">Тесты и практика</a>
+
+                    <a class="Menu_link" href="#">Программы обучения</a><input type="search" placeholder="Поиск.."
+                                                                               name="search"
+                                                                               style="border-radius:10px;">
+                    <button type="submit" style="background:#fff; border-radius:10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor"
+                             viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <hr>
+            </div>
+
+
+        </div>
+
+<script src="../static/js/ajax.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
